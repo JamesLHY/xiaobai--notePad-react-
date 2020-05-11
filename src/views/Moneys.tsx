@@ -3,8 +3,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TagsSection = styled.section`
+flex-grow: 1;
 background: #ffffff;
 padding: 12px 16px;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-start;
  > ol{
  margin: 0 -12px;
   > li{
@@ -124,9 +129,13 @@ background: #a9a9a9;
 }
 `;
 
+const MyLayout = styled(Layout)`
+display: flex;
+flex-direction: column;
+`;
 function Moneys() {
     return (
-        <Layout>
+        <MyLayout>
             <TagsSection>
                 <ol>
                     <li>衣</li>
@@ -167,7 +176,7 @@ function Moneys() {
                     <button className='dot'>.</button>
                 </div>
             </NumberPadSection>
-        </Layout>
+        </MyLayout>
     );
 }
 
