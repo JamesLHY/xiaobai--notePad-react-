@@ -4,6 +4,7 @@ import React from 'react';
 import Icon from './icon';
 
 const NavWrapper = styled.nav`
+background: #ffffff;
 line-height:24px;
 box-shadow:0 0 3px rgba(0,0,0,0.5);
 > ul {
