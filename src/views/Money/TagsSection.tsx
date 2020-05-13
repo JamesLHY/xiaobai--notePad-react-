@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React, {useState} from 'react';
+import {useTags} from '../../useTags';
 const Wrapper = styled.section`
 flex-grow: 1;
 background: #ffffff;
@@ -38,7 +39,8 @@ type Props = {
 
 };
 const TagsSection: React.FC<Props> = (props) =>{
-    const [tags,setTags] = useState<string[]>(['衣','食','住','行']);
+    const {tags,setTags} =  useTags();
+
     const selectedTag = props.value;
     const onAddTag=()=>{
         const tagName = window.prompt('請輸入想添加的標簽名');
