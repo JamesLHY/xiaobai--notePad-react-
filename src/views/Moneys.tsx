@@ -33,8 +33,8 @@ function Moneys() {
                              onChange={category => onChange({category})}/>
             <NumberPadSection value={selected.amount}
                               onChange={amount => onChange({amount})}/>
-            onOk={() => {}
-        }/>
+
+
         </MyLayout>
     );
 }
