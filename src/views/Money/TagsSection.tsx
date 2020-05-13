@@ -30,12 +30,16 @@ align-items: flex-start;
  border-bottom: 1px solid #333;
  color: #666;
  margin-top: 8px;
- }
+ } 
 `;
+type Props = {
+    value:string[];
+    onChange: (selected:string[])=> void
 
-const TagsSection: React.FC = () =>{
+};
+const TagsSection: React.FC<Props> = (props) =>{
     const [tags,setTags] = useState<string[]>(['衣','食','住','行']);
-    const [selectedTag,setSelectedTag] = useState<string[]>([]);
+    const selectedTag = props.value;
     const onAddTag=()=>{
         const tagName = window.prompt('請輸入想添加的標簽名');
         if(tagName!==null){
@@ -43,11 +47,11 @@ const TagsSection: React.FC = () =>{
         }
     };
     const onToggleTag = (tag:string)=>{
-const index = selectedTag.indexOf(tag)
+const index = selectedTag.indexOf(tag);
         if(index>=0){
-           setSelectedTag(selectedTag.filter(t =>t !==tag))
+           props.onChange(selectedTag.filter(t =>t !==tag))
         }else{
-            setSelectedTag([...selectedTag, tag])
+            props.onChange([...selectedTag, tag])
         }
     };
     return(

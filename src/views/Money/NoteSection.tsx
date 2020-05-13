@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, {useState} from 'react';
+import React from 'react';
 
 
 const Wrapper = styled.section`
@@ -21,20 +21,23 @@ font-size: 14px;
  }
  }
 `;
-
-const NoteSection: React.FC =() =>{
-    const [note,setNote] = useState('');
-    return(
-<Wrapper>
-    <label>
-        <span>备注</span>
-        <input type='text' placeholder='请输入备注'
-               value={note}
-               onChange={(e)=> setNote(e.target.value)}
-        />
-    </label>
-</Wrapper>
-    )
+type Props = {
+    value: string;
+    onChange: (value: string) => void
+}
+const NoteSection: React.FC<Props> = (props) => {
+    const note = props.value;
+    return (
+        <Wrapper>
+            <label>
+                <span>备注</span>
+                <input type='text' placeholder='请输入备注'
+                       value={note}
+                       onChange={(e) => props.onChange(e.target.value)}
+                />
+            </label>
+        </Wrapper>
+    );
 };
 
-export {NoteSection}
+export {NoteSection};
