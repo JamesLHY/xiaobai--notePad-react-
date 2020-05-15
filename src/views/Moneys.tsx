@@ -28,14 +28,14 @@ function Moneys() {
         setSelected({...selected, ...obj});
     };
     const submit = () => {
-        addRecord(selected);
-        alert('保存成功');
-        setSelected(defaultFromData)
+        if (addRecord(selected)) {
+            alert('保存成功');
+            setSelected(defaultFromData);
+        }
     };
-
     return (
         <MyLayout>
-            {JSON.stringify(selected)}
+
             <TagsSection value={selected.tagIds}
                          onChange={tagIds => onChange({tagIds})}/>
             <NoteSection value={selected.note}
@@ -43,8 +43,10 @@ function Moneys() {
             <CategorySection value={selected.category}
                              onChange={category => onChange({category})}/>
             <NumberPadSection value={selected.amount}
-                              onChange={amount => onChange({amount})}/>
-            onOk={submit}
+                              onChange={amount => onChange({amount})}
+                              onOk={submit}
+            />
+
 
         </MyLayout>
     );
