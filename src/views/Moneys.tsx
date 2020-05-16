@@ -27,7 +27,7 @@ background: #c4c4c4;
 
 function Moneys() {
     const [selected, setSelected] = useState(defaultFromData);
-    const {records, addRecord} = useRecords();
+    const {addRecord} = useRecords();
     const onChange = (obj: Partial<typeof selected>) => {
         setSelected({...selected, ...obj});
     };
