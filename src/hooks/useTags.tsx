@@ -6,7 +6,6 @@ const useTags = () => {
     const [tags, setTags] = useState<{ id: number; name: string }[]>([]);
     useEffect(() => {
         let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]');
-        console.log(window.localStorage.getItem('tags'));
         if (localTags.length === 0) {
             localTags = [
                 {id: createId(), name: '衣'},
@@ -20,7 +19,7 @@ const useTags = () => {
 
     useUpdate(() => {
         window.localStorage.setItem('tags', JSON.stringify(tags));
-    }, [tags]);
+    }, tags);
 
     const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
     const findTagIndex = (id: number) => {
