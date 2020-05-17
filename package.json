@@ -1,6 +1,7 @@
 {
   "name": "wangcai",
   "version": "0.1.0",
+  "homepage": "https://lihaoyu666.xyz/xiaobai-notePad-react-version-website/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",
